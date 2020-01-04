@@ -1,0 +1,16 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	#RewriteRule ^CMSAdmin(.*)$ backend/web/$l [L]
+	#RewriteRule ^(.*)$ frontend/web/$l [L]
+</IfModule>
+
+# Deny accessing below extensions
+<Files ~ "(.lock|.git)">
+Order allow,deny
+Deny from allow
+</Files>
+
+#Deny accessing dot files
+RewriteRule (^\.|/\.) - [F]
